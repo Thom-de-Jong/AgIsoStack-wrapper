@@ -1,0 +1,17 @@
+[package]
+name = "isobus-plus-plus"
+version = "0.0.1"
+edition = "2021"
+authors = ["Thom de Jong <https://github.com/Thom-de-Jong>"]
+description = "Rust wrapper for the ISOBUS++ library by Adrian Del Grosso"
+keywords = ["isobus", "iso11783", "j1939", "can", "canbus"]
+categories = ["api-bindings"]
+
+license = "MIT"
+homepage = "https://github.com/Thom-de-Jong/isobus-plus-plus"
+documentation = "https://docs.rs/isobus-plus-plus"
+repository = "https://github.com/Thom-de-Jong/isobus-plus-plus"
+readme = "README.md"
+
+[dependencies]
+isobus-plus-plus-sys = "0.0.1"
