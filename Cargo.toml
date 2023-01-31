@@ -7,11 +7,33 @@ description = "Rust wrapper for the ISOBUS++ library by Adrian Del Grosso"
 keywords = ["isobus", "iso11783", "j1939", "can", "canbus"]
 categories = ["api-bindings"]
 
-license = "MIT"
+license = "MIT AND Apache-2.0"
 homepage = "https://github.com/Thom-de-Jong/isobus-plus-plus"
 documentation = "https://docs.rs/isobus-plus-plus"
 repository = "https://github.com/Thom-de-Jong/isobus-plus-plus"
 readme = "README.md"
 
 [dependencies]
-isobus-plus-plus-sys = "0.0.1"
+# isobus-plus-plus-sys = "0.0.1"
+isobus-plus-plus-sys = { path = "../isobus-plus-plus-sys" }
+pcan-basic = { version = "1.0.2", optional = true }
+socketcan = { version = "1.7.0", optional = true }
+lazy_static = "1.4.0"
+
+[features]
+default = ["std", "mock_can_driver", "log_can"]
+win32 = ["std", "peak_can_driver", "log_can"]
+cm4 = ["std", "socket_can_driver"]
+
+# Driver options
+std = []
+peak_can_driver = ["pcan-basic"]
+mock_can_driver = []
+socket_can_driver = ["socketcan"]
+
+# Logging options
+log_can = ["log_can_read", "log_can_write"]
+log_all_can = ["log_all_can_read", "log_can_write"]
+log_can_write = []
+log_can_read = []
+log_all_can_read = []
