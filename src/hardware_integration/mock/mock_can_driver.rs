@@ -1,5 +1,6 @@
 
 use crate::hardware_integration::CanHardwarePluginTrait;
+use crate::HardwareInterfaceCanFrame;
 
 pub struct MockCanDriver {
     is_valid: bool
@@ -24,11 +25,11 @@ impl CanHardwarePluginTrait for MockCanDriver {
         self.is_valid = true;
     }
 
-    fn read_frame(&mut self) -> Option<crate::HardwareInterfaceCanFrame> {
+    fn read_frame(&mut self) -> Option<HardwareInterfaceCanFrame> {
         None
     }
 
-    fn write_frame(&mut self, can_frame: &crate::HardwareInterfaceCanFrame) -> bool {
+    fn write_frame(&mut self, _can_frame: &HardwareInterfaceCanFrame) -> bool {
         true
     }
 }

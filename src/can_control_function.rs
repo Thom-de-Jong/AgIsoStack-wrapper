@@ -11,7 +11,7 @@ use crate::isobus;
 use crate::Name;
 
 /// @brief The type of the control function
-enum Type {
+pub enum Type {
     Internal, //< The control function is part of our stack and can address claim
 	External, //< The control function is some other device on the bus
 	Partnered, //< An external control function that you explicitly want to talk to

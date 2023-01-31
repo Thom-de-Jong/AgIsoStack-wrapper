@@ -197,7 +197,7 @@ impl CanNetworkManager {
 // 		static CANNetworkManager CANNetwork; ///< Static singleton of the one network manager. Use this to access stack functionality.
 
 	/// @brief Initializer function for the network manager
-	pub fn initialize(&self) {
+	pub fn initialize(&mut self) {
         unsafe { self.can_network_manager.initialize(); }
     }
 
@@ -228,7 +228,9 @@ impl CanNetworkManager {
     /// @brief Returns the number of global PGN callbacks that have been registered with the network manager
 	/// @returns The number of global PGN callbacks that have been registered with the network manager
 	pub fn get_number_global_parameter_group_number_callbacks(&self) -> u32 {
-        self.get_number_global_parameter_group_number_callbacks()
+		unsafe {
+        	self.can_network_manager.get_number_global_parameter_group_number_callbacks()
+		}
     }
 	
     // /// @brief Registers a callback for ANY control function sending the associated PGN
@@ -268,15 +270,18 @@ impl CanNetworkManager {
 	/// @param[in] message The message to be received
 	pub fn receive_can_message(&mut self) -> CanMessage {
         unsafe {
-            let mut can_message = CanMessage::new(0);
+            let can_message = CanMessage::new(0);
             self.can_network_manager.receive_can_message(can_message.into());
-            can_message
+            // can_message
+			todo!()
         }
     }
 
 	/// @brief The main update function for the network manager. Updates all protocols.
-	pub fn update(&self) {
-        unsafe { self.can_network_manager.update(); }
+	pub fn update(&mut self) {
+        unsafe {
+			self.can_network_manager.update();
+		}
     }
 
 	// /// @brief Process the CAN Rx queue

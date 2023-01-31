@@ -14,7 +14,7 @@ lazy_static::lazy_static! {
 }
 
 pub fn get_timestamp() -> Instant {
-	STARTUP_TIME.clone()
+	Instant::now()
 }
 
 pub fn get_time_elapsed() -> Duration {

@@ -11,7 +11,7 @@
 use crate::isobus;
 
 /// @brief Defines all the CAN frame priorities that can be encoded in a frame ID
-enum CANPriority {
+pub enum CANPriority {
     PriorityHighest0 = 0, //< Highest CAN priority
     Priority1 = 1, //< Priority highest - 1
     Priority2 = 2, //< Priority highest - 2
@@ -23,7 +23,7 @@ enum CANPriority {
 }
 
 /// @brief Defines if a frame is a standard (11 bit) or extended (29 bit) ID frame
-enum Type {
+pub enum Type {
     Standard = 0, //< Frame is an 11bit ID standard (legacy) message with no PGN and highest priority
     Extended = 1, //< Frame is a modern 29 bit ID CAN frame
 }
@@ -117,6 +117,7 @@ impl CANIdentifier {
     }
 
 }
+
 
 impl From<CANIdentifier> for isobus::isobus_CANIdentifier {
     fn from(value: CANIdentifier) -> Self {

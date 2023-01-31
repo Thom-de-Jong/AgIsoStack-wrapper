@@ -15,14 +15,14 @@ use crate::{isobus, can_control_function::ControlFunction, can_identifier::CANId
 // #include <vector>
 
 /// @brief The internal message type
-enum Type {
+pub enum Type {
     Transmit, //< Message is to be transmitted from the stack
     Receive, //< Message is being received
     Internal, //< Message is being used internally as data storage for a protocol
 }
 
 /// @brief The different byte formats that can be used when reading bytes from the buffer.
-enum ByteFormat {
+pub enum ByteFormat {
     LittleEndian,
     BigEndian,
 }
@@ -77,17 +77,19 @@ impl CanMessage {
 	/// @brief Gets the source control function that the message is from
 	/// @returns The source control function that the message is from
 	pub fn source_control_function(&self) -> ControlFunction {
-        unsafe {
-            (*self.can_message.get_source_control_function()).into()
-        }
+        // unsafe {
+        //     (*self.can_message.get_source_control_function()).into()
+        // }
+        todo!()
     }
 
 	/// @brief Gets the destination control function that the message is to
 	/// @returns The destination control function that the message is to
     pub fn destination_control_function(&self) -> ControlFunction {
-        unsafe {
-            (*self.can_message.get_destination_control_function()).into()
-        }
+        // unsafe {
+        //     (*self.can_message.get_destination_control_function()).into()
+        // }
+        todo!()
     }
 
 	/// @brief Returns the identifier of the message
@@ -176,7 +178,7 @@ impl CanMessage {
 }
 
 impl From<CanMessage> for isobus::isobus_CANMessage {
-    fn from(value: CanMessage) -> Self {
+    fn from(_value: CanMessage) -> Self {
         todo!()
     }
 }

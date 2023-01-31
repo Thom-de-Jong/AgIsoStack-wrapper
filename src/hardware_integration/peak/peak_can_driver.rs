@@ -53,10 +53,17 @@ impl PeakCanDriver {
     }
 }
 
-impl CanDriverTrait for PeakCanDriver {
-    fn init(&mut self) {}
 
-    fn open(&mut self, baudrate: Option<Baudrate>) {
+impl CanHardwarePluginTrait for PeakCanDriver {
+    fn is_valid(&mut self) -> bool {
+        self.socket.is_some()
+    }
+
+    fn close(&mut self) {
+        self.socket = None;
+    }
+
+    fn open(&mut self) {
         if self.socket.is_some() && self.baudrate == baudrate {
             return;
         }
@@ -73,11 +80,7 @@ impl CanDriverTrait for PeakCanDriver {
         };
     }
 
-    fn close(&mut self) {
-        self.socket = None;
-    }
-
-    fn read(&mut self) -> Option<CanFrame> {
+    fn read_frame(&mut self) -> Option<HardwareInterfaceCanFrame> {
         let socket = match self.socket() {
             Some(socket) => socket,
             None => return None,
@@ -93,20 +96,23 @@ impl CanDriverTrait for PeakCanDriver {
         }
     }
 
-    fn write(&mut self, frame: CanFrame) {
+    fn write_frame(&mut self, can_frame: &HardwareInterfaceCanFrame) -> bool {
         #[cfg(feature = "log_can_write")]
-        log::debug!("send: {}", &frame);
+        log::debug!("send: {}", &can_frame);
 
         let socket = match self.socket() {
             Some(socket) => socket,
             None => return,
         };
 
-        if let Err(e) = socket.send(frame.into()) {
+        if let Err(e) = socket.send(can_frame.into()) {
             self.log_can_error("Unable to write CAN frame", Some(e));
         }
     }
 }
+
+
+
 
 impl From<CanFrame> for pcan_basic::socket::CanFrame {
     fn from(frame: CanFrame) -> Self {
