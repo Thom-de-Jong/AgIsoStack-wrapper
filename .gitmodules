@@ -1,0 +1,4 @@
+[submodule "isobus-plus-plus-sys"]
+	path = isobus-plus-plus-sys
+	url = https://www.github.com/Thom-de-Jong/isobus-plus-plus-sys.git
+	branch = dev
