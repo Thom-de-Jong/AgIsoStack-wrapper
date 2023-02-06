@@ -1,10 +1,8 @@
 @echo off
 
 echo Building ISO11783-CAN-Stack...
-cd ".\isobus-plus-plus-sys"
-git submodule update
-cd ".\ISO11783-CAN-Stack"
-git submodule update
+git submodule update --recursive --remote --init
+cd ".\isobus-plus-plus-sys\ISO11783-CAN-Stack"
 cmake -S . -B build -G "MinGW Makefiles" -DCAN_DRIVER=WindowsPCANBasic
 cmake --build build
 cd "..\..\"
