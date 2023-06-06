@@ -1,16 +1,16 @@
 [package]
-name = "isobus-plus-plus"
+name = "agisostack-rs"
 version = "0.0.1"
 edition = "2021"
 authors = ["Thom de Jong <https://github.com/Thom-de-Jong>"]
-description = "Rust wrapper for the ISOBUS++ library by Adrian Del Grosso"
+description = "Rust wrapper for the AgIsoStack++ library by Adrian Del Grosso"
 keywords = ["isobus", "iso11783", "j1939", "can", "canbus"]
 categories = ["api-bindings"]
 
 license = "MIT"
-homepage = "https://github.com/Thom-de-Jong/isobus-plus-plus"
-documentation = "https://docs.rs/isobus-plus-plus"
-repository = "https://github.com/Thom-de-Jong/isobus-plus-plus"
+homepage = "https://github.com/Thom-de-Jong/AgIsoStack-rs"
+documentation = "https://docs.rs/AgIsoStack-rs"
+repository = "https://github.com/Thom-de-Jong/AgIsoStack-rs"
 readme = "README.md"
 
 [dependencies]
