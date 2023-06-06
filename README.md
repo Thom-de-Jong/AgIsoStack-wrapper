@@ -23,6 +23,14 @@ Rust bindings for the [AgIsoStack++](https://github.com/Open-Agriculture/AgIsoSt
   - `rustup default stable-gnu`
 - Use `AgIsoStack-rs` as a dependency
 
+## To-Do list
+- [ ] Support for Windows and Linux (Linux not tested)
+- [ ] Wrap all data structures (NAME, CANFrame, etc.)
+- [ ] Wrap the network manager
+- [ ] Wrap the TP and ETP managers
+- [ ] Add test cases for all systems
+- [ ] ... More ...
+
 ## License / Terms of Usage
 
 The source code of this project is licensed under the MIT/Apache-2.0 license. This implies that you are free to use, share, and adapt it. However, please give appropriate credit by citing the project.
