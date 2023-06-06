@@ -14,4 +14,4 @@ repository = "https://github.com/Thom-de-Jong/AgIsoStack-rs"
 readme = "README.md"
 
 [dependencies]
-isobus-plus-plus-sys = "0.0.1"
+agisostack-rs-sys = "0.0.1"
