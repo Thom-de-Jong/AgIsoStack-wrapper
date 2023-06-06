@@ -1,4 +1,4 @@
-[submodule "isobus-plus-plus-sys"]
-	path = isobus-plus-plus-sys
-	url = https://www.github.com/Thom-de-Jong/isobus-plus-plus-sys.git
+[submodule "agisostack-sys"]
+	path = agisostack-sys
+	url = https://www.github.com/Thom-de-Jong/agisostack-sys.git
 	branch = dev
