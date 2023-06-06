@@ -7,7 +7,7 @@ description = "Rust wrapper for the AgIsoStack++ library by Adrian Del Grosso"
 keywords = ["isobus", "iso11783", "j1939", "can", "canbus"]
 categories = ["api-bindings"]
 
-license = "MIT"
+license = "MIT AND Apache-2.0"
 homepage = "https://github.com/Thom-de-Jong/AgIsoStack-rs"
 documentation = "https://docs.rs/AgIsoStack-rs"
 repository = "https://github.com/Thom-de-Jong/AgIsoStack-rs"
